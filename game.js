@@ -13,8 +13,10 @@ function getComputerChoice(){
 
 function playRound(playerSelection, computerSelection){
     playerSelection = playerSelection.toLowerCase()
-    // computerSelection = computerSelection.toLowerCase()
-    if(playerSelection === 'rock' && computerSelection === 'Rock'){
+    if(playerSelection !== `rock` || playerSelection !== `paper` || playerSelection !== `scissors`){
+        return 'Invalid input, should be Rock or Paper or Scissors'
+    }
+    else if(playerSelection === 'rock' && computerSelection === 'Rock'){
         return `It's a tie`
     }
     else if(playerSelection === 'rock' && computerSelection === 'Paper'){
