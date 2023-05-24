@@ -29,7 +29,23 @@ function playRound(playerSelection, computerSelection){
     }
 }
 
-const playerSelection = "rock";
+// const playerSelection = "rock";
 const computerSelection = getComputerChoice();
-console.log(computerSelection);
-console.log(playRound(playerSelection, computerSelection));
+// console.log(computerSelection);
+// console.log(playRound(playerSelection, computerSelection));
+
+function game(){
+    let result, playerScore = 0, computerScore = 0;
+    for (let index = 0; index < 5; index++) {
+        result = playRound(prompt('Rock, Paper, Scissors'), computerSelection);
+        console.log(result);
+        if(result.startsWith('You win')){
+            playerScore++;
+        }
+        else if(result.startsWith('You lose')){
+            computerScore++;
+        }
+    }
+    playerScore > computerScore ? console.log('Player Wins') : console.log('Computer wins');
+}
+game();
