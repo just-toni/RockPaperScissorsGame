@@ -17,11 +17,11 @@ function playRound(playerSelection, computerSelection){
     }
     if(playerSelection === 'paper' && computerSelection === 'rock'){
         playerScore++;
-        return 'You win! Paper beats Rock';
+        return `You win! Paper beats Rock. Your score is ${playerScore}`;
     }
     if(playerSelection === 'rock' && computerSelection === 'scissors'){
         playerScore++;
-        return 'You win! Rock beats Scissors';
+        return `You win! Rock beats Scissors. Your score is ${playerScore}`;
     }
     if(playerSelection === 'scissors' && computerSelection === 'rock'){
         computerScore++;
@@ -31,9 +31,9 @@ function playRound(playerSelection, computerSelection){
         computerScore++;
         return 'You lose! Scissors beats Paper';
     }
-    if(playerSelection === 'scisspors' && computerSelection === 'paper'){
+    if(playerSelection === 'scissors' && computerSelection === 'paper'){
         playerScore++;
-        return 'You win! Scissors beats Paper';
+        return `You win! Scissors beats Paper. Your score is ${playerScore}`;
     }
 }
 
@@ -50,23 +50,116 @@ body.appendChild(rock);
 body.appendChild(scissors);
 body.appendChild(paper);
 
-rock.addEventListener('click', e=>{
-    let div = document.createElement('div');
-    div.textContent = playRound('rock', getComputerChoice());
-    body.appendChild(div);
-});
+if(playerScore != 6){
+    rock.addEventListener('click', e=>{
+        let div = document.createElement('div');
+        let p = document.createElement('p');
+        p.textContent = playRound('rock', getComputerChoice());
+        let p1 = document.createElement('p');
+        p1.textContent = 'This round: ' + p.textContent;
+        div.appendChild(p1);    
+        body.appendChild(div);
+    });
+    scissors.addEventListener('click', e=>{
+        let div = document.createElement('div');
+        let p = document.createElement('p');
+        p.textContent = playRound('scissors', getComputerChoice());
+        let p1 = document.createElement('p');
+        p1.textContent = 'This round: ' + p.textContent;
+        div.appendChild(p1);    
+        body.appendChild(div);
+    });
+    paper.addEventListener('click', e=>{
+        let div = document.createElement('div');
+        let p = document.createElement('p');
+        p.textContent = playRound('paper', getComputerChoice());
+        let p1 = document.createElement('p');
+        p1.textContent = 'This round: ' + p.textContent;
+        div.appendChild(p1);    
+        body.appendChild(div);
+    })
+}
+else{
+    if(playerScore > computerScore){
+        p.textContent = `Computer scores ${computerScore} \n You score ${playerScore} \n You win!`;
+        div.appendChild(p);
+        body.appendChild(div);
+    }
+    else{
+        p.textContent = `Computer scores ${computerScore} \n You score ${playerScore} \n Computer wins!`;
+        div.appendChild(p);
+        body.appendChild(div);
+    }
+}
 
-scissors.addEventListener('click', e=>{
-    let div = document.createElement('div');
-    div.textContent = playRound('scissors', getComputerChoice());
-    body.appendChild(div);
-});
+// rock.addEventListener('click', e=>{
+//     let div = document.createElement('div');
+//     let p = document.createElement('p');
+//     p.textContent = playRound('rock', getComputerChoice());
+//     if(playerScore <= 5){
+//         let p1 = document.createElement('p');
+//         p1.textContent = 'This round: ' + p.textContent;
+//         div.appendChild(p1);    
+//         body.appendChild(div);
+//     }
+//     else{
+//         if(playerScore > computerScore){
+//             p.textContent = `Computer scores ${computerScore} \n You score ${playerScore} \n You win!`;
+//             div.appendChild(p);
+//             body.appendChild(div);
+//         }
+//         else{
+//             p.textContent = `Computer scores ${computerScore} \n You score ${playerScore} \n Computer wins!`;
+//             div.appendChild(p);
+//             body.appendChild(div);
+//         }
+//     }
+    
+// });
 
-paper.addEventListener('click', e=>{
-    let div = document.createElement('div');
-    div.textContent = playRound('paper', getComputerChoice());
-    body.appendChild(div);
-})
+// scissors.addEventListener('click', e=>{
+//     let div = document.createElement('div');
+//     let p = document.createElement('p');
+//     p.textContent = playRound('scissors', getComputerChoice());
+//     if(p.textContent !== 'Done'){
+//         let p1 = document.createElement('p');
+//         p1.textContent = 'This round: ' + p.textContent;
+//         div.appendChild(p1);    
+//         body.appendChild(div);
+//     }
+//     else{
+//         if(playerScore > computerScore){
+//             p.textContent = `Computer scores ${computerScore} \n You score ${playerScore} \n You win!`;
+//             div.appendChild(p);
+//         }
+//         else{
+//             p.textContent = `Computer scores ${computerScore} \n You score ${playerScore} \n Computer wins!`;
+//             div.appendChild(p);
+//         }
+//     }
+// });
+
+// paper.addEventListener('click', e=>{
+//     let div = document.createElement('div');
+//     let p = document.createElement('p');
+//     p.textContent = playRound('paper', getComputerChoice());
+//     if(p.textContent !== 'Done'){
+//         let p1 = document.createElement('p');
+//         p1.textContent = 'This round: ' + p.textContent;
+//         div.appendChild(p1);    
+//         body.appendChild(div);
+//     }
+//     else{
+//         if(playerScore > computerScore){
+//             p.textContent = `Computer scores ${computerScore} \n You score ${playerScore} \n You win!`;
+//             div.appendChild(p);
+//         }
+//         else{
+//             p.textContent = `Computer scores ${computerScore} \n You score ${playerScore} \n Computer wins!`;
+//             div.appendChild(p);
+//         }
+//     }
+// })
 
 // const playerSelection = "rock";
 const computerSelection = getComputerChoice();
