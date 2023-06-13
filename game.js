@@ -77,7 +77,7 @@ body.appendChild(paper);
 /**
  * problems
  * how to display the p1 text once and it would just be updated and not repeated or appended
- * how to stop the entire game once the player score is 5 and display Results
+ * how to stop the entire game once the player score is 5 and display Results (kind of fixed)
  */
 
 rock.addEventListener('click', e=>{
